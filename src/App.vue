@@ -9,11 +9,6 @@
 
 <script>
 export default {
-  mounted() {
-    window.addEventListener('dblclick', () => {
-      this.enterFullscreen();
-    });
-  },
   methods: {
     async enterFullscreen() {
       if (document.fullscreenElement) {
@@ -51,13 +46,6 @@ body, ::backdrop {
   position: absolute;
   transform: translateY(var(--font-size));
 }
-:fullscreen button {
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: translateX(50vw) translateY(90vh);
-}
 button {
   font-size: 20px;
   color: rgba(0, 214, 252, 0.5);
@@ -65,6 +53,11 @@ button {
   border: solid 1px rgba(0, 214, 252, 0.5);
   border-radius: 5px;
   cursor: pointer;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateX(50vw) translateY(90vh);
 }
 button:hover {
   border: solid 1px rgba(0, 214, 252, 0.8);
