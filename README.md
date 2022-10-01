@@ -1,4 +1,6 @@
 # big-text
+Use a phone screen as a display for big text. Makes it easier make warnings about e.g. bears on the loose.
+
 
 ## Project setup
 ```
