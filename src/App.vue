@@ -17,9 +17,15 @@ export default {
   methods: {
     enterFullscreen() {
       if (document.fullscreenElement) {
+        if (screen.orientation.unlock) {
+          screen.orientation.unlock();
+        }
         document.exitFullscreen();
       } else {
         document.body.requestFullscreen();
+        if (screen.orientation.lock) {
+          screen.orientation.lock('landscape');
+        }
       }
     },
   },
