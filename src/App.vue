@@ -15,14 +15,14 @@ export default {
     });
   },
   methods: {
-    enterFullscreen() {
+    async enterFullscreen() {
       if (document.fullscreenElement) {
+        document.exitFullscreen();
         if (screen.orientation.unlock) {
           screen.orientation.unlock();
         }
-        document.exitFullscreen();
       } else {
-        document.body.requestFullscreen();
+        await document.body.requestFullscreen();
         if (screen.orientation.lock) {
           screen.orientation.lock('landscape');
         }
