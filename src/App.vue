@@ -1,22 +1,26 @@
 <template>
   <div>
     <div class="text" contenteditable>
-      enter text here
+      ⚠ Warning: There is a bear 🐻
     </div>
-    <button @click="enterFullscreen">Enter fullscreen</button>
+    <button @click="enterFullscreen">Fullscreen</button>
   </div>
 </template>
 
 <script>
 export default {
   mounted() {
-    addEventListener('dblclick', () => {
+    window.addEventListener('dblclick', () => {
       this.enterFullscreen();
     });
   },
   methods: {
     enterFullscreen() {
-      document.body.requestFullscreen();
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        document.body.requestFullscreen();
+      }
     },
   },
 }
@@ -42,7 +46,11 @@ body, ::backdrop {
   transform: translateY(var(--font-size));
 }
 :fullscreen button {
-  display: none;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateX(50vw) translateY(90vh);
 }
 button {
   font-size: 20px;
